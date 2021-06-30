@@ -1,0 +1,16 @@
+import './graph/types'
+
+export function getGraphData(data?: string): DataType {
+    let result
+    if (data) {
+        try {
+            result = JSON.parse(data)
+            return result
+        } catch (e) {
+            alert('В исходныx данных есть синтаксическая ошибка')
+        }
+    } else {
+        result = JSON.parse("{\"commits\":[{\"hash\":\"1\",\"text\":\"initial commit\",\"time\":\"2021-01-01T15:45:07Z\",\"previous\":[]},{\"hash\":\"2\",\"text\":\"commit 2\",\"time\":\"2021-01-02T23:59:00Z\",\"previous\":[\"1\"]},{\"hash\":\"3\",\"text\":\"commit 3\",\"time\":\"2021-01-05T11:11:11Z\",\"previous\":[\"1\"]},{\"hash\":\"4\",\"text\":\"commit 4\",\"time\":\"2021-01-06T11:11:11Z\",\"previous\":[\"2\",\"3\"]},{\"hash\":\"5\",\"text\":\"commit 5\",\"time\":\"2021-01-07T11:11:11Z\",\"previous\":[\"4\"]},{\"hash\":\"6\",\"text\":\"commit 6\",\"time\":\"2021-01-07T11:18:11Z\",\"previous\":[\"5\"]},{\"hash\":\"7\",\"text\":\"commit 7\",\"time\":\"2021-01-09T11:11:11Z\",\"previous\":[\"5\"]},{\"hash\":\"8\",\"text\":\"commit 8\",\"time\":\"2021-01-09T11:18:11Z\",\"previous\":[\"6\"]},{\"hash\":\"9\",\"text\":\"commit 9\",\"time\":\"2021-01-09T12:25:11Z\",\"previous\":[\"7\"]},{\"hash\":\"10\",\"text\":\"commit 10\",\"time\":\"2021-01-09T12:45:11Z\",\"previous\":[\"9\"]},{\"hash\":\"11\",\"text\":\"commit 11\",\"time\":\"2021-01-09T13:45:11Z\",\"previous\":[\"9\"]},{\"hash\":\"12\",\"text\":\"commit 12\",\"time\":\"2021-01-09T14:45:11Z\",\"previous\":[\"10\"]},{\"hash\":\"13\",\"text\":\"commit 13\",\"time\":\"2021-01-09T14:55:11Z\",\"previous\":[\"11\"]},{\"hash\":\"14\",\"text\":\"commit 14\",\"time\":\"2021-01-09T15:55:11Z\",\"previous\":[\"12\",\"13\"]},{\"hash\":\"15\",\"text\":\"commit 15\",\"time\":\"2021-01-09T16:10:11Z\",\"previous\":[\"8\"]},{\"hash\":\"16\",\"text\":\"commit 16\",\"time\":\"2021-01-10T10:00:00Z\",\"previous\":[\"15\",\"14\"]},{\"hash\":\"17\",\"text\":\"commit 17\",\"time\":\"2021-01-10T12:15:11Z\",\"previous\":[\"16\"]},{\"hash\":\"18\",\"text\":\"commit 18\",\"time\":\"2021-01-10T13:15:11Z\",\"previous\":[\"17\"]},{\"hash\":\"19\",\"text\":\"commit 19\",\"time\":\"2021-01-10T14:25:11Z\",\"previous\":[\"18\"]},{\"hash\":\"20\",\"text\":\"commit 20\",\"time\":\"2021-01-10T14:40:11Z\",\"previous\":[\"18\"]},{\"hash\":\"21\",\"text\":\"commit 21\",\"time\":\"2021-01-10T15:42:11Z\",\"previous\":[\"20\"]},{\"hash\":\"22\",\"text\":\"commit 22\",\"time\":\"2021-01-11T10:27:11Z\",\"previous\":[\"19\",\"21\"]},{\"hash\":\"23\",\"text\":\"commit 23\",\"time\":\"2021-01-11T12:27:11Z\",\"previous\":[\"22\"]},{\"hash\":\"24\",\"text\":\"commit 24\",\"time\":\"2021-01-11T15:20:00Z\",\"previous\":[\"23\"]}],\"tags\":[{\"commit\":\"3\",\"tag\":\"branch\/a\"},{\"commit\":\"4\",\"tag\":\"rel\/1x0\"},{\"commit\":\"7\",\"tag\":\"branch\/b\"},{\"commit\":\"11\",\"tag\":\"branch\/c\"},{\"commit\":\"14\",\"tag\":\"merge\/c\/b\"},{\"commit\":\"16\",\"tag\":\"merge\/b\/a\"},{\"commit\":\"20\",\"tag\":\"branch\/e\"},{\"commit\":\"22\",\"tag\":\"merge\/a\/e\"}]}")
+    }
+    return result
+}

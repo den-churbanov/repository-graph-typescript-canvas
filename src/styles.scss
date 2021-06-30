@@ -1,0 +1,192 @@
+@mixin clear-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+$btn-color: #00d5dc;
+$btn-active-color: #00adb4;
+$input-color: #f0f0f0;
+$input-border-color: #ececec;
+
+%btn {
+    box-sizing: border-box;
+    display: inline-block;
+    min-width: 140px;
+    height: 2rem;
+    color: #fff;
+    border-radius: 7px;
+    border: 1px solid $btn-color;
+    padding: 0.6em 1em;
+    text-align: center;
+    font: bold 0.8rem sans-serif;
+    letter-spacing: 0.03rem;
+    text-shadow: 0 1px 1px rgba(0, 0, 0, 0.3);
+    background-color: $btn-color;
+    outline: none;
+    cursor: pointer;
+    
+    -webkit-transition: background-color 0.1s linear;
+    -moz-transition: background-color 0.1s linear;
+    -o-transition: background-color 0.1s linear;
+    transition: background-color 0.1s linear;
+    
+    -webkit-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.08);
+    -moz-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.08);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.08);
+    
+    &:disabled {
+        opacity: 0.75;
+        cursor: auto;
+    }
+    
+    @media screen and (min-width: 992px) {
+        &:hover:enabled {
+            background: $btn-active-color;
+            border: 1px solid $btn-active-color;
+        }
+    }
+    
+    &:active:enabled {
+        background: $btn-active-color;
+        border: 1px solid $btn-active-color;
+    }
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: #666;
+    font-family: Arial, sans-serif;
+}
+
+.container {
+    max-width: 800px;
+    margin: 5rem auto;
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 4px;
+    background: #fff;
+    padding: 1rem;
+    box-shadow: 2px 3px 10px rgba(0, 0, 0, 0.2);
+    
+    h4{
+        margin-bottom: 0.5rem;
+    }
+}
+
+.options {
+    min-width: 100%;
+    padding-top: 1rem;
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flex;
+    display: flex;
+    -webkit-flex-flow: column wrap;
+    flex-flow: column wrap;
+    -webkit-justify-content: center;
+    justify-content: center;
+    -webkit-align-items: center;
+    align-items: center;
+    
+    .input-area {
+        width: 100%;
+        resize: vertical;
+        overflow: auto;
+        min-height: 100px;
+        display: inline-block;
+        -moz-appearance: none;
+        appearance: none;
+        outline: none;
+        background-color: $input-color;
+        font: 14px "Courier New", sans-serif;
+        border-radius: 5px;
+        border: 2px solid $input-border-color;
+        padding: 0.6em 0.5em;
+        margin-bottom: 0.5rem;
+        &:focus::-webkit-input-placeholder {
+            opacity: 0.3;
+        }
+    }
+    .btn{
+        @extend %btn;
+    }
+}
+
+
+.graph {
+    position: relative;
+    box-sizing: border-box;
+    
+    > canvas {
+        z-index: 2;
+        cursor: pointer;
+    }
+    
+    .graph-tooltip {
+        position: absolute;
+        display: none;
+        max-width: 220px;
+        min-width: 120px;
+        padding: 0.4rem;
+        border-radius: 5px;
+        border: 1px solid #dfe6eb;
+        box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.05);
+        background: #fff;
+        color: #000;
+        overflow: hidden;
+        z-index: 3;
+        
+        top: 50px;
+        left: 100px;
+        
+        .tooltip-title {
+            text-align: center;
+            margin-bottom: 0.4rem;
+            white-space: nowrap;
+        }
+        
+        .tooltip-list {
+            display: flex;
+            flex-wrap: wrap;
+            @include clear-list;
+        }
+        
+        .tooltip-list-item {
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            flex-grow: 1;
+            padding: 0.1rem;
+            
+            .text {
+                font-size: 0.8rem;
+                font-weight: bold;
+                margin-bottom: 0.4rem;
+            }
+            
+            .hash {
+                font-size: 0.7rem;
+                font-style: italic;
+                font-weight: bold;
+                margin-bottom: 0.5rem;
+            }
+            
+            .tag {
+                font-size: 0.7rem;
+                font-style: italic;
+                font-weight: bold;
+            }
+        }
+    }
+}

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,
+                    user-scalable=no,
+                    initial-scale=1,
+                    maximum-scale=1,
+                     minimum-scale=1"/>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
+    <title>TypeScript Repository Graph</title>
+</head>
+
+<body>
+<div class="container">
+    <div class="card">
+        <h4>Граф коммитов репозитория</h4>
+        <div class="graph" id="graph">
+            <div data-el="tooltip" class="graph-tooltip"></div>
+            <canvas data-el="main"></canvas>
+        </div>
+        <div class="options" id="options">
+            <textarea class="input-area"
+                      data-el="input-area"
+                      placeholder="Введите исходные данные в формате JSON..."></textarea>
+            <button class="btn" disabled="true"
+                    data-el="button">Построить
+            </button>
+        </div>
+    </div>
+</div>
+</body>
+
+</html>
